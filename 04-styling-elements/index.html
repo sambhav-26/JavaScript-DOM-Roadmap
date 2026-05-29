@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Styling Elements</title>
+</head>
+
+<body>
+
+    <!-- Creating 3 empty div boxes -->
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <div id="box3"></div>
+
+</body>
+
+<style>
+    /* 
+       Applying common styling to all div elements
+       This sets the default width and height for every box
+    */
+
+    div {
+        width: 50px;
+        height: 50px;
+    }
+</style>
+
+<script>
+
+
+    // Selecting the element using its id
+    let a = document.getElementById("box1");
+
+    // Changing the background color of the box
+    a.style.backgroundColor = "lightgreen";
+
+    // Adding border to the box
+    // Syntax: "width style color"
+    a.style.border = "1px solid black";
+
+    // Selecting box2 element
+    let b = document.getElementById("box2");
+
+    // Changing background color
+    b.style.backgroundColor = "powderblue";
+
+    // Adding black border
+    b.style.border = "1px solid black";
+
+    // Adding margin around the box
+    // Margin creates space outside the element
+    b.style.margin = "10px";
+
+
+    // Selecting box3 element
+    let c = document.getElementById("box3");
+
+    // Changing background color
+    c.style.backgroundColor = "pink";
+
+    // Adding border
+    c.style.border = "1px solid black";
+
+    // Adding larger margin
+    c.style.margin = "20px";
+
+    // Changing width dynamically using JavaScript
+    c.style.width = "400px";
+
+</script>
+
+</html>
