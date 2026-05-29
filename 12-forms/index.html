@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>preventDefault Demo</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    padding:20px;
+}
+
+input{
+    padding:10px;
+    margin:5px;
+}
+
+button{
+    padding:10px;
+}
+
+#output{
+    margin-top:20px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1>Form Example</h1>
+
+<form id="loginForm">
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Enter Username">
+
+    <br>
+
+    <input
+        type="password"
+        id="password"
+        placeholder="Enter Password">
+
+    <br>
+
+    <button type="submit">
+        Login
+    </button>
+
+</form>
+
+<div id="output"></div>
+
+<script>
+
+let form =document.getElementById("loginForm");
+
+let output =document.getElementById("output");
+
+/*
+preventDefault()
+Purpose:Stops the default form submission.
+
+Without preventDefault():
+- Form submits
+- Page refreshes
+
+With preventDefault():
+- No refresh
+- JavaScript handles the form
+*/
+
+form.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    let username = document.getElementById("username").value;
+
+    let password = document.getElementById("password").value;
+
+    /*
+    Simple Validation
+    */
+
+    if(username === "" || password === ""){
+        output.innerText ="Please fill all fields.";
+        return;
+    }
+    output.innerText ="Login Successful";
+
+});
+
+</script>
+
+</body>
+</html>
