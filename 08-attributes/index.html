@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Attributes Example</title>
+</head>
+<body>
+
+    <!-- Image with attributes -->
+    <img
+        id="myImage"
+        src="/assets/1.png"
+        alt="Placeholder Image"
+        width="200"
+    >
+
+    <br><br>
+
+    <button id="getBtn">Get src Attribute</button>
+    <button id="setBtn">Change Image</button>
+
+    <p id="output"></p>
+
+    <script>
+
+        // Selecting elements
+        let image = document.getElementById("myImage");
+        let getBtn = document.getElementById("getBtn");
+        let setBtn = document.getElementById("setBtn");
+        let output = document.getElementById("output");
+
+        /*
+        getAttribute()
+
+        Used to read the value of an existing attribute.
+
+        Syntax:
+        element.getAttribute("attributeName")
+
+        Here we are reading the value of the src attribute.
+        */
+        getBtn.addEventListener("click", function () {
+
+            let imageSource = image.getAttribute("src");
+
+            output.innerText =
+                "Current src attribute value: " + imageSource;
+        });
+
+        /*
+        setAttribute()
+
+        Used to add a new attribute or update an existing one.
+
+        Syntax:
+        element.setAttribute("attributeName", "value")
+
+        Here we are changing:
+        1. src attribute
+        2. alt attribute
+        */
+        setBtn.addEventListener("click", function () {
+
+            image.setAttribute(
+                "src",
+                "/assets/2.png"
+            );
+
+            image.setAttribute(
+                "alt",
+                "Updated Placeholder Image"
+            );
+
+            output.innerText =
+                "Image attributes updated successfully!";
+        });
+
+    </script>
+
+</body>
+</html>
