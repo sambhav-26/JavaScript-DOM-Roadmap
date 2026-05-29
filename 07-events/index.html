@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn">Change BG color to lightgreen</button>
+    <button class="btn1">Change BG color to lightblue</button>
+</body>
+<script>
+
+    let btn = document.querySelector(".btn");
+
+    /*
+    addEventListener() is used to attach an event handler to an element.
+
+    Syntax:
+    element.addEventListener(event, callbackFunction);
+
+    Here:
+    - "click" is the event being listened for.
+    - The anonymous function is executed when the button is clicked.
+
+    This demonstrates event handling using an anonymous function.
+    */
+    btn.addEventListener("click", function (){
+        document.body.style.backgroundColor = "lightgreen";
+    });
+
+
+    let btn1 = document.querySelector(".btn1");
+
+    /*
+    addEventListener() can also call a named function.
+
+    When the "click" event occurs,
+    JavaScript executes the changecolor() function.
+
+    This demonstrates event handling using a named function.
+    */
+    btn1.addEventListener("click", changecolor);
+
+    function changecolor(){
+        document.body.style.backgroundColor = "lightblue";
+    }
+
+</script>
+</html>
