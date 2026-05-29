@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Playground</title>
+
+</head>
+<body>
+    <h1 id="title">DOM Playground</h1>
+    <p class="sub">This is a simple DOM playground for practicing element selection.</p>
+    <div class="box">Box-1</div>
+    <div class="box1">Box-2</div>
+    <div class="box1">Box-3</div>
+    <button>Click me!</button>
+</body>
+<style>
+    .box {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .box1 {
+        width: 100px;
+        height: 100px;
+        background-color: lightgray;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+</style>
+    <script>
+        // using document.getElementById("id") for selecting the title by id and updating it. 
+        let title = document.getElementById("title");
+        title.innerHTML = "Updated Title - Selecting Elements";
+
+        //using document.querySelector(".box") for selecting the first box by class and updating its content.
+        //querySelector(".box") will select the first element with the class "box" and change it.
+        let firstBox = document.querySelector(".box");
+        firstBox.style.backgroundColor = "lightcoral";
+
+        //using document.querySelectorAll(".box1") for selecting all boxes by class and updating their content.
+        //querySelectorAll(".box1") will select all elements with the class "box1" and change their content/properties.
+        // this - (let allBoxes = document.querySelectorAll(".box1");) returns a NodeList [box1, box2, box3]
+        //We can loop through this NodeList to update each box's background color to lightgreen.
+     let allBoxes = document.querySelectorAll(".box1");
+    for(let i = 0; i < allBoxes.length; i++){
+    allBoxes[i].style.backgroundColor = "lightgreen";
+
+    //using getElementsByClassName("sub") for selecting the paragraph by class and updating its content.
+    let subParagraph = document.getElementsByClassName("sub")[0];
+    subParagraph.innerHTML = "Updated Subtitle - Selecting Elements";
+
+    //using getElementsByTagName("button") for selecting the button by tag name and updating its content.
+    let button = document.getElementsByTagName("button")[0];
+    button.innerHTML = "Updated Button - Click me!";    
+}
+       
+    </script>
+</html>
