@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Traversing Example</title>
+</head>
+<body>
+
+    <!-- Parent Element -->
+    <div id="container">
+
+        <h1>Heading</h1>
+
+        <p>Paragraph</p>
+
+        <button>Click Me</button>
+
+    </div>
+
+    <script>
+
+        /*
+        DOM Traversing allows us to move
+        between related elements in the DOM tree.
+        */
+
+        let container = document.getElementById("container");
+
+        /*
+        =====================================
+        children
+        =====================================
+
+        Returns all child elements of
+        the selected parent.
+
+        Output:
+        [h1, p, button]
+        */
+        console.log(container.children);
+
+
+
+        /*
+        =====================================
+        firstElementChild
+        =====================================
+
+        Returns the first child element
+        inside the parent.
+
+        Output:
+        <h1>Heading</h1>
+        */
+        console.log(container.firstElementChild);
+
+
+
+        /*
+        =====================================
+        lastElementChild
+        =====================================
+
+        Returns the last child element
+        inside the parent.
+
+        Output:
+        <button>Click Me</button>
+        */
+        console.log(container.lastElementChild);
+
+
+
+        /*
+        =====================================
+        parentElement
+        =====================================
+
+        Returns the parent of an element.
+        */
+
+        let heading = document.querySelector("h1");
+
+        /*
+        Output:
+
+        <div id="container">
+        */
+        console.log(heading.parentElement);
+
+
+
+        /*
+        Example:
+        Accessing parent from button
+        */
+
+        let button = document.querySelector("button");
+
+        console.log(button.parentElement);
+
+    </script>
+
+</body>
+</html>
