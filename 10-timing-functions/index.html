@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Timing Functions Demo</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    padding:20px;
+}
+
+button{
+    margin:5px;
+    padding:10px;
+}
+
+#output{
+    margin-top:20px;
+    font-size:20px;
+    font-weight:bold;
+}
+</style>
+
+</head>
+<body>
+
+<h1>JavaScript Timing Functions</h1>
+
+<button id="timeoutBtn">
+    Start setTimeout
+</button>
+
+<button id="cancelTimeoutBtn">
+    Cancel setTimeout
+</button>
+
+<br><br>
+
+<button id="intervalBtn">
+    Start setInterval
+</button>
+
+<button id="stopIntervalBtn">
+    Stop setInterval
+</button>
+
+<div id="output">
+    Waiting...
+</div>
+
+<script>
+    let output = document.getElementById("output");
+    let timeoutId;
+    let intervalId;
+    /*
+        Timing functions allow us to execute code
+        after a delay or at regular intervals.
+        1. setTimeout() - Executes a function once after a specified delay.
+        2. setInterval() - Executes a function repeatedly at specified intervals.
+    */
+    
+
+    /*
+    VARIATION 1
+    setTimeout with Anonymous Function
+    Executes once after 3 seconds.
+    */
+    document.getElementById("timeoutBtn").addEventListener("click", function(){
+        timeoutId = setTimeout(function(){
+            output.innerText =
+            "setTimeout executed after 3 seconds";
+        },3000);
+    });
+
+
+
+    /*
+    clearTimeout()
+    Cancels a scheduled timeout.
+    */
+    document.getElementById("cancelTimeoutBtn").addEventListener("click", function(){
+         clearTimeout(timeoutId);
+        output.innerText = "Timeout Cancelled";
+    });
+
+
+
+    /*
+    VARIATION 2
+    setInterval with Anonymous Function
+    Runs every second continuously.
+    */
+    document.getElementById("intervalBtn").addEventListener("click", function(){
+        let count = 0;
+        intervalId = setInterval(function(){
+            count++;
+            output.innerText ="Interval Count : " + count;
+        },1000);
+    });
+
+
+
+    /*
+    clearInterval()
+    Stops a running interval.
+    */
+    document.getElementById("stopIntervalBtn").addEventListener("click", function(){
+        clearInterval(intervalId);
+        output.innerText = "Interval Stopped";
+    });
+
+
+
+    /*
+    VARIATION 3
+    setTimeout with Named Function
+    */
+
+    function showMessage(){
+        console.log(
+        "Named Function Executed"
+        );
+    }
+    setTimeout(showMessage,5000);
+</script>
+</body>
+</html>
