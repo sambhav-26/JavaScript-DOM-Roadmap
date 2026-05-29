@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Changing content</title>
+</head>
+
+<body>
+
+    <h2 id="a"></h2>
+    <h2 id="b"></h2>
+    <h2 id="c"></h2>
+</body>
+<script>
+    //.innerHTML addds html inside an element
+    // selecting the element by id and changing its text.
+    let x = document.getElementById("a");
+    x.innerHTML = "<h1 style='color:pink;'>the sky is pink</h1>";
+
+    //.innerText adds plain text
+    //selecting an element by id and chaning its text to plain text.
+    //here we are not adding an html element we are just adding plain text 
+    let y = document.getElementById("b");
+    y.innerText = "i am from india";
+
+    // .textContent adds plain text content
+    // selecting an element by id and changing all its text content.
+    // it does not understand HTML tags and also does not follow CSS styling inside tags.
+    // everything is treated as normal plain text.
+    let z = document.getElementById("c");
+    z.textContent = "<h1 style='color:red;'>I am from India</h1>";
+
+</script>
+
+</html>
