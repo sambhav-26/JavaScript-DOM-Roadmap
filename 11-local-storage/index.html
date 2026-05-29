@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>Local Storage Demonstration</h1>
+
+    <input type="text" id="nameInput" placeholder="Enter Name">
+
+    <br>
+
+    <button id="saveBtn">Save Data</button>
+    <button id="readBtn">Read Data</button>
+    <button id="deleteBtn">Delete Data</button>
+    <button id="clearBtn">Clear Storage</button>
+    <button id="countBtn">Count Items</button>
+    <button id="keyBtn">Get First Key</button>
+
+    <div id="output"></div>
+
+    <script>
+
+        let input = document.getElementById("nameInput");
+        let output = document.getElementById("output");
+
+
+
+        /*
+        setItem()
+        Purpose:Stores data inside local storage.
+        Syntax:localStorage.setItem(key,value)
+        
+        The data remains stored evenafter refreshing the page.
+        */
+
+        document.getElementById("saveBtn").addEventListener("click", function () {
+            localStorage.setItem("name", input.value);
+            output.innerText = "Data Saved Successfully";
+        });
+
+
+
+        /*
+        getItem()
+        Purpose: Reads data from local storage.
+        Syntax: localStorage.getItem(key)
+        */
+
+        document.getElementById("readBtn").addEventListener("click", function () {
+            let savedName = localStorage.getItem("name");
+            output.innerText = "Saved Name : " + savedName;
+        });
+
+
+
+        /*
+        removeItem()
+        Purpose: Deletes one specific item.
+        Syntax: localStorage.removeItem(key)
+        */
+
+        document.getElementById("deleteBtn").addEventListener("click", function () {
+            localStorage.removeItem("name");
+            output.innerText = "Name Deleted";
+        });
+
+
+
+        /*
+        clear()
+        Purpose:Deletes everything from local storage.
+        Syntax: localStorage.clear()
+        */
+
+        document.getElementById("clearBtn").addEventListener("click", function () {
+            localStorage.clear();
+            output.innerText = "All Storage Cleared";
+        });
+
+
+
+        /*
+        length
+        Purpose:Returns total number of items stored in local storage.
+        Syntax: localStorage.length
+        */
+
+        document.getElementById("countBtn").addEventListener("click", function () {
+
+            output.innerText = "Total Items : " + localStorage.length;
+
+        });
+
+
+        /*
+        key()
+        Purpose:Returns key name using index.₹
+        Syntax: localStorage.key(index)
+        */
+
+        document.getElementById("keyBtn").addEventListener("click", function () {
+
+            output.innerText = "First Key : " + localStorage.key(0);
+        });
+
+
+
+        /*
+        Object Storage Example
+        Local Storage stores strings only.
+        
+        Objects must be converted intoJSON format before storing.
+        */
+
+        let student = {
+            name: "Sambhav",
+            course: "B.Tech"
+        };
+
+        localStorage.setItem("student", JSON.stringify(student)
+        );
+
+        /*
+        Reading Object Back
+        */
+        let storedStudent = JSON.parse(localStorage.getItem("student"));
+        console.log(storedStudent);
+    </script>
+</body>
+
+</html>
